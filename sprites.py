@@ -15,7 +15,6 @@ class Block(pygame.sprite.Sprite):
         self.image= self.game.terrain_spritesheet.get_image(991,541, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x,self.rect.y  = self.x,self.y
-        self.image.fill((215,215,215))
 
 class Ground(pygame.sprite.Sprite):
     def __init__(self, game, x,y):
@@ -31,7 +30,6 @@ class Ground(pygame.sprite.Sprite):
         self.image= self.game.terrain_spritesheet.get_image(447,353, self.width, self.height)
         self.rect = self.image.get_rect()
         self.rect.x,self.rect.y  = self.x,self.y
-        self.image.fill((0,225,0))
 """
 class Water(pygame.sprite.Sprite):
     def __init__(self, game, x,y):
