@@ -16,22 +16,19 @@ class Spritesheet:
 class Game:
     def __init__(self):
         self.screen = pygame.display.set_mode((WIN_WIDTH,WIN_HEIGHT))
-        self.clock = pygame.time.Clock()
+        self.clock = pygame.time.Clock()  
+        self.terrain_spritesheet = Spritesheet("C:/Users/Bruger/Desktop/Coding/application/apps_handling/shooting_game/assets/terrain.png")
         self.running = True
-        self.terrain_spritesheet = Spritesheet(os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "terrain.png"))
     def createTileMap(self):
         for i,row in enumerate(tilemap):
             for j,column in enumerate(row):
                 Ground(self,j,i)
-                print(f"Ground tile created at {j}, {i}")
                 if column=="B":
                     Block(self,j,i)
-                    print(f"Block tile created at {j}, {i}")
                 """
                 elif column=="W":
                     Water(self,j,i)
                 """
-        print("--------------------------------------------\n \n TileMap created!")
     
     def create(self):
         self.all_sprites =pygame.sprite.LayeredUpdates()
@@ -49,7 +46,6 @@ class Game:
     def draw(self):
         self.screen.fill(BLACK)
         self.all_sprites.draw(self.screen)
-        self.create()
         self.clock.tick(FPS)
         pygame.display.update()
 
@@ -64,6 +60,5 @@ game.create()
 
 while game.running:
     game.main()
-
 pygame.quit()
 sys.exit()
